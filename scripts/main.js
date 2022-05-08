@@ -12,7 +12,7 @@ async function requestPoem(url) {
 }
 
 function turnArrayToObject(array) {
-  for (let i = 0; i < array.length i++) {
+  for (let i = 0; i < array.length; i++) {
     let object = new Object()
     object.i = array[i]
     return object
