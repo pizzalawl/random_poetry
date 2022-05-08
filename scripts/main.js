@@ -10,27 +10,10 @@ async function requestPoem(url) {
   let data = response.json()
   return data
 }
-
-function turnArrayToObject(array) {
-  for (let i = 0; i < array.length; i++) {
-    let object = new Object()
-    object.i = array[i]
-    return object
-  }
-}
-
-function turnObjectIntoHTML(object, length, destination) {
-  for (let i = 0; i < length; i++) {
-    var i = document.createElement(i)
-    i.innerHTML = object.i
-    destination.appendChild(i)
-  }
-}
-
   
 button.onclick = async () => {
   let data = await requestPoem(url)
   title.innerHTML = data[0].title
   author.innerHTML = data[0].author
-  turnObjectIntoHTML(turnArrayToObject(data[0].lines), 10, fullBody)
+  body.innerHTML = data[0].lines
 }
