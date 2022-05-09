@@ -13,7 +13,10 @@ async function requestPoem(url) {
   
 button.onclick = async () => {
   let data = await requestPoem(url)
+  let poem = data[0].lines
   title.innerHTML = data[0].title
   author.innerHTML = data[0].author
-  body.innerHTML = data[0].lines
+  for (let i = 0; i < poem.length; i++) {
+    document.getElementById(`body${i+1}`).innerHTML = data[i];
+  }
 }
