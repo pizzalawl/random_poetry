@@ -1,5 +1,5 @@
 let url = 'https://poetrydb.org/random,linecount/1;10/title,author,lines.json'
-const button = document.getElementById('button')
+const myButton = document.getElementById('myButton')
 const title = document.getElementById('title')
 const author = document.getElementById('author')
 const fullBody = document.getElementById('fullbody')
