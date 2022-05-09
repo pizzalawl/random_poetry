@@ -13,7 +13,7 @@ $('button').onclick = async () => {
   $('author').innerHTML = data[0].author
   for (let i = 0; i < poem.length; i++) {
     let element = document.createElement(`body${i+1}`)
-    $('fullBody').appendChild(element)
+    $('fullBody').appendChild($('element'))
     document.getElementById(`body${i+1}`).innerHTML = poem[i];
   }
 }
