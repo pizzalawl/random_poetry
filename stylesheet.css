@@ -14,19 +14,24 @@ body {
     font-size: 40px;
     display: flex;
     justify-content: center;
-    color: #bf0000;
+    color: white;
 }
 
 .box {
+	height:73%;
+	width:50%;
+	overflow-y: scroll;
+	overflow-x: scroll;
     position: absolute; 
-    top: 50%; 
-    left: 50%; 
+    top: 63%; 
+    left: 35%; 
     transform: translate(-50%, -50%);
+	
     background-color: white;
     border: 1px solid #23272a
 }
 
-#button {
+#myButton {
 	box-shadow:inset 0px 1px 0px 0px #54a3f7;
 	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
 	background-color:#007dc1;
@@ -40,14 +45,19 @@ body {
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #154682;
+	position: relative;
 }
-.myButton:hover {
+#myButton:hover {
 	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
 	background-color:#0061a7;
 }
-.myButton:active {
-	position:relative;
-	top:1px;
+
+#buttonbox {
+	position: relative;
+	left: 62%;
+	width: fit-content;
+	height: fit-content;
+	border: 5px solid black;
 }
 
         
