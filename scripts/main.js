@@ -12,7 +12,7 @@ $('button').onclick = async () => {
   $('title').innerHTML = data[0].title
   $('author').innerHTML = data[0].author
   for (let i = 0; i < poem.length; i++) {
-    let element = document.createElement(`body${i+1}`)
+    document.createElement(`body${i+1}`)
     $('fullBody').appendChild($('element'))
     document.getElementById(`body${i+1}`).innerHTML = poem[i];
   }
