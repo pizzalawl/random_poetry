@@ -17,7 +17,7 @@ body {
     color: white;
 }
 
-.box {
+#container {
 	height:73%;
 	width:50%;
 	overflow-y: scroll;
