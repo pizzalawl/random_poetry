@@ -11,12 +11,9 @@ async function requestPoem(url) {
   return data
 }
   
-myButton.onclick = async () => {
-  container.innerHTML = ""
-  let val = document.getElementById('input').value
-  if (val == "") {
-    val = "10"
-  }
+myButton.onclick = async () => { 
+  clearContainer()
+  getFormValue()
   let url = `https://poetrydb.org/random,linecount/1;${val}/title,author,lines.json`
   let data = await requestPoem(url)
   let poem = data[0].lines
@@ -27,7 +24,18 @@ myButton.onclick = async () => {
     newElement.innerHTML = poem[i];
     container.appendChild(newElement)
   }
-  executedBefore = true
+}
+
+function clearContainer() {
+  container.innerHTML = ""
+}
+
+function getFormValue() {
+  let val = document.getElementById('input').value
+  if (val == "") {
+    val = "10"
+  }
+  return val
 }
 
 
