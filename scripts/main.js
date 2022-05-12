@@ -23,12 +23,9 @@ function checkFormValue(val) {
   return val
 }
 
-function setTitleInfo(data) {
-  title.innerHTML = data.title
-  author.innerHTML = data.author
-}
-
-function setPoem(data) {
+function setPoem(data, titleData, authorData) {
+  title.innerHTML = titleData
+  author.innerHTML = authorData
   let poem = data.lines
   for (let i = 0; i < poem.length; i++) {
     let newElement = document.createElement('p')
@@ -41,8 +38,7 @@ myButton.onclick = async () => {
   clearContainer()
   let url = `https://poetrydb.org/random,linecount/1;${checkFormValue(val)}/title,author,lines.json`
   let data = await requestPoem(url)
-  setTitleInfo(data[0])
-  setPoem(data[0])
+  setPoem(data[0], data[0].title, data[0].author)
 }
 
 
