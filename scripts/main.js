@@ -11,14 +11,6 @@ async function requestPoem(url) {
   let data = response.json()
   return data
 }
-  
-myButton.onclick = async () => { 
-  clearContainer()
-  let url = `https://poetrydb.org/random,linecount/1;${checkFormValue(val)}/title,author,lines.json`
-  let data = await requestPoem(url)
-  setTitleInfo(data)
-  setPoem(data)
-}
 
 function clearContainer() {
   container.innerHTML = ""
@@ -32,17 +24,25 @@ function checkFormValue(val) {
 }
 
 function setTitleInfo(data) {
-  title.innerHTML = data[0].title
-  author.innerHTML = data[0].author
+  title.innerHTML = data.title
+  author.innerHTML = data.author
 }
 
 function setPoem(data) {
-  let poem = data[0].lines
+  let poem = data.lines
   for (let i = 0; i < poem.length; i++) {
     let newElement = document.createElement('p')
     newElement.innerHTML = poem[i];
     container.appendChild(newElement)
   }
+}
+  
+myButton.onclick = async () => { 
+  clearContainer()
+  let url = `https://poetrydb.org/random,linecount/1;${checkFormValue(val)}/title,author,lines.json`
+  let data = await requestPoem(url)
+  setTitleInfo(data[0])
+  setPoem(data[0])
 }
 
 
