@@ -4,6 +4,7 @@ const author = document.getElementById('author')
 const container = document.getElementById('container')
 const element = document.getElementById('element')
 const form = document.getElementById("form")
+let val = document.getElementById('lineCount').value
 
 async function requestPoem(url) {
   let response = await fetch(url);
@@ -13,29 +14,35 @@ async function requestPoem(url) {
   
 myButton.onclick = async () => { 
   clearContainer()
-  getFormValue()
-  let url = `https://poetrydb.org/random,linecount/1;${val}/title,author,lines.json`
+  let url = `https://poetrydb.org/random,linecount/1;${checkFormValue(val)}/title,author,lines.json`
   let data = await requestPoem(url)
-  let poem = data[0].lines
-  title.innerHTML = data[0].title
-  author.innerHTML = data[0].author
-  for (let i = 0; i < poem.length; i++) {
-    let newElement = document.createElement('p')
-    newElement.innerHTML = poem[i];
-    container.appendChild(newElement)
-  }
+  setTitleInfo(data)
+  setPoem(data)
 }
 
 function clearContainer() {
   container.innerHTML = ""
 }
 
-function getFormValue() {
-  let val = document.getElementById('input').value
+function checkFormValue(val) {
   if (val == "") {
     val = "10"
   }
   return val
+}
+
+function setTitleInfo(data) {
+  title.innerHTML = data[0].title
+  author.innerHTML = data[0].author
+}
+
+function setPoem(data) {
+  let poem = data[0].lines
+  for (let i = 0; i < poem.length; i++) {
+    let newElement = document.createElement('p')
+    newElement.innerHTML = poem[i];
+    container.appendChild(newElement)
+  }
 }
 
 
