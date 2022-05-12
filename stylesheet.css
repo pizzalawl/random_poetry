@@ -17,8 +17,8 @@ body {
     color: white;
 }
 
-#container {
-	height:73%;
+#box {
+	height:65%;
 	width:50%;
 	overflow-y: scroll;
 	overflow-x: scroll;
