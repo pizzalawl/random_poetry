@@ -17,8 +17,8 @@ async function requestPoem(url) {
 myButton.onclick = async () => {
   if(executedBefore == true) {
     for (let i = 0; i < elementList.length; i++) {
-      let removedItem = elementList.splice(i, i)
-      console.log(removedItem)
+      elementList.splice(i, i)
+      console.log(elementList)
     }
   }
   let val = document.getElementById('input').value
@@ -34,7 +34,8 @@ myButton.onclick = async () => {
     let newElement = document.createElement('p')
     newElement.innerHTML = poem[i];
     container.appendChild(newElement)
-    elementList.push(newElement)
+    elementList.push(newElement + i)
+    console.log(elementList)
   }
   executedBefore = true
 }
