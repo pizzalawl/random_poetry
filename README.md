@@ -1,2 +1,2 @@
 # random_poetry
-web app using vanilla javascript and PoetryDB to get 10 lines of poetry for the uncultured folks.
+Web App using Vanilla Javascript and PoetryDB to get as many lines of a poem as needed for uncultured folks.
