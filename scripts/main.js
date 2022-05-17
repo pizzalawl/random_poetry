@@ -24,24 +24,21 @@ function getFormValue() {
   return val
 }
 
-function setPoem(data, titleData, authorData) {
-  title.innerHTML = titleData
-  author.innerHTML = authorData
-  let poem = data.lines
+function setPoem(data) {
+  let poem = data[0].lines
+  title.innerHTML = data[0].title
+  author.innerHTML = data[0].author
   for (let i = 0; i < poem.length; i++) {
     let newElement = document.createElement('p')
     newElement.innerHTML = poem[i];
     container.appendChild(newElement)
-  }
-}
+} }
+
   
 myButton.onclick = async () => { 
   clearContainer()
   let val = getFormValue()
   let url = `https://poetrydb.org/random,linecount/1;${val}/title,author,lines.json`
   let data = await requestPoem(url)
-  setPoem(data[0], data[0].title, data[0].author)
+  setPoem(data)
 }
-
-
-
